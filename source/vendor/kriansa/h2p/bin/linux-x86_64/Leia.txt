@@ -1,0 +1,45 @@
+yum install fontconfig 
+yum install libpng
+yum install libjpg
+
+Estava com erro no centOS 7, pois o pdf vinha com erro
+baixei o executavel nesta pagia
+https://groups.google.com/forum/#!topic/phantomjs/CAasXq1Yzz0
+ https://github.com/ariya/phantomjs/issues/12948 // sproffer commented on 13 Mar 2015
+
+
+ http://garyzhu.net/notes/phantomjs-centos7.tar.
+ 
+
+ 
+  ldd bin/phantomjs
+        linux-vdso.so.1 =>  (0x00007fff85dfe000)
+        libicudata.so.50 => /lib64/libicudata.so.50 (0x00007fef00cb4000)
+        libssl.so.10 => /lib64/libssl.so.10 (0x00007fef00a47000)
+        libcrypto.so.10 => /lib64/libcrypto.so.10 (0x00007fef00662000)
+        libfontconfig.so.1 => /lib64/libfontconfig.so.1 (0x00007fef00426000)
+        libfreetype.so.6 => /lib64/libfreetype.so.6 (0x00007fef00180000)
+        libjpeg.so.62 => /lib64/libjpeg.so.62 (0x00007feefff2b000)
+        libpng15.so.15 => /lib64/libpng15.so.15 (0x00007feeffd00000)
+        libz.so.1 => /lib64/libz.so.1 (0x00007feeffae9000)
+        libicui18n.so.50 => /lib64/libicui18n.so.50 (0x00007feeff6eb000)
+        libicuuc.so.50 => /lib64/libicuuc.so.50 (0x00007feeff372000)
+        libdl.so.2 => /lib64/libdl.so.2 (0x00007feeff16d000)
+        librt.so.1 => /lib64/librt.so.1 (0x00007feefef65000)
+        libpthread.so.0 => /lib64/libpthread.so.0 (0x00007feefed49000)
+        libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007feefea41000)
+        libm.so.6 => /lib64/libm.so.6 (0x00007feefe73f000)
+        libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007feefe529000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007feefe167000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007fef022a4000)
+        libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007feefdf1d000)
+        libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007feefdc3d000)
+        libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007feefda38000)
+        libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007feefd803000)
+        libexpat.so.1 => /lib64/libexpat.so.1 (0x00007feefd5d9000)
+        libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007feefd3ca000)
+        libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007feefd1c6000)
+        libresolv.so.2 => /lib64/libresolv.so.2 (0x00007feefcfab000)
+        libselinux.so.1 => /lib64/libselinux.so.1 (0x00007feefcd86000)
+        libpcre.so.1 => /lib64/libpcre.so.1 (0x00007feefcb24000)
+        liblzma.so.5 => /lib64/liblzma.so.5 (0x00007feefc8ff000)

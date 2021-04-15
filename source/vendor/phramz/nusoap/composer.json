@@ -1,0 +1,35 @@
+{
+    "name": "phramz/nusoap",
+    "description": "NuSOAP++ - Clone based on 'NuSOAP - SOAP Toolkit for PHP' v0.9.5",
+    "license": "LGPLv2",
+    "authors": [
+        {
+          "name": "Dietrich Ayala",
+          "homepage": "http://sourceforge.net/u/dietricha/profile/"
+        },
+        {
+          "name": "Scott Nichol",
+          "homepage": "http://sourceforge.net/u/snichol/profile/"
+        }
+    ],
+    "require": {
+      "php": ">=5.3.3"
+    },
+    "suggest": {
+        "ext-curl": "If you want to use HTTPS transport"
+    },
+    "autoload": {
+        "classmap": [
+          "lib/class.nusoap_base.php",
+          "lib/class.soap_fault.php",
+          "lib/class.soap_parser.php",
+          "lib/class.soap_server.php",
+          "lib/class.soap_transport_http.php",
+          "lib/class.soap_val.php",
+          "lib/class.soapclient.php",
+          "lib/class.wsdl.php",
+          "lib/class.wsdlcache.php",
+          "lib/class.xmlschema.php"
+        ]
+    }
+}

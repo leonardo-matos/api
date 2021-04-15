@@ -1,0 +1,7 @@
+Options +FollowSymlinks -MultiViews
+#Redirect 301 /source/ http://10.62.7.248/source/
+
+RewriteEngine On
+RewriteBase /documentations/
+RewriteCond %{REQUEST_URI} !^/
+RewriteRule (.*) /$1 [L]
