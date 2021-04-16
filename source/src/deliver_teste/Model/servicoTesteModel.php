@@ -12,6 +12,7 @@ class servicoTesteModel extends deliverModel
         $this->cachedQuery = false;
         
         $this->strSqlQuery = "SELECT * FROM MsgBoletosBancarios";
+        // $this->strSqlQuery = "SELECT * FROM dbo.Cidade";
 
         $this->executeSqlServer();
         

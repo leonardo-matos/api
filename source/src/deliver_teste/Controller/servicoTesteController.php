@@ -276,28 +276,37 @@ class servicoTesteController extends deliverController
 	}
 	public function teste(Application $app, Request $request)
 	{
-		$this->validarRequisicao($app, '','');
-	
+		// $this->validarRequisicao($app, '','');
+		
 		$model = new servicoTesteModel();
-	
+		
 		$model->teste();
 		
 		$teste = $model->getResultSet();
-
+		echo '<pre>';
+		var_dump($teste);exit;
+		
 		if(empty($teste)){
 			return 'VAZIO';
 		}else{
+			// $i = 1;
 			foreach($teste as $dados){
-				$arrRetorno = array('idMsgBoletoBancario' => $dados['IdMsgBoletoBancario'],
-									'tipoMensagem' => $dados['TipoMensagem'],
-									'mensagem' => $dados['Mensagem'],
-									'finalidadeInstrucao' => $dados['FinalidadeInstrucao'],
-									'idBancoSiscafW' => $dados['IdBancoSiscafW'],
-									'e_MensagemWEB' => $dados['E_MensagemWEB'],
-									'e_InstrucaoWEB' => $dados['E_InstrucaoWEB'],
-									'mensagemHTML' => $dados['MensagemHTML'],
-									'e_Terceirizado' => $dados['E_Terceirizado']
-									);
+				// var_dump($dados);
+				// $arrRetorno = array('idMsgBoletoBancario' => $dados['IdMsgBoletoBancario'],
+				// 					'tipoMensagem' => $dados['TipoMensagem'],
+				// 					'mensagem' => $dados['Mensagem'],
+				// 					'finalidadeInstrucao' => $dados['FinalidadeInstrucao'],
+				// 					'idBancoSiscafW' => $dados['IdBancoSiscafW'],
+				// 					'e_MensagemWEB' => $dados['E_MensagemWEB'],
+				// 					'e_InstrucaoWEB' => $dados['E_InstrucaoWEB'],
+				// 					'mensagemHTML' => $dados['MensagemHTML'],
+				// 					'e_Terceirizado' => $dados['E_Terceirizado']
+				// 					);
+				// $arrRetorno[$i] = array('CodCidade' => $dados['CodCidade'],
+				// 					'Nome' => $dados['Nome'],
+				// 					'codSubsecao' => $dados['codSubsecao']
+				// 					);
+				// 					$i++;
 			}
 		}
 		return $app->json($arrRetorno);

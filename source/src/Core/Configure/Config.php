@@ -3,7 +3,7 @@ namespace API\Core\Configure;
 
 GLOBAL $SISCONF;
 
-$SISCONF['API']['URL_BASE'] = "http://localhost/api/source";
+$SISCONF['API']['URL_BASE'] = "http://localhost:8080";
 // $SISCONF['API']['URL_BASE'] = "http://10.62.7.248/api/source";
 
 GLOBAL $ARRLOG;
@@ -17,8 +17,9 @@ class Config
 	public $password =  '';
 
 	// Configuração de acesso ao banco SQL SERVER
-	public $dsn_sqlserver = "sqlsrv:Server=192.168.2.3;Database=Implanta_OABRS"; // conexão no WINDOWS
-	// public $dsn_sqlserver = "dblib:host=192.168.2.3;dbname=Implanta_OABRS"; // LINUX
+	// public $dsn_sqlserver = "sqlsrv:Server=192.168.2.3;Database=Profissionais_OABRS"; // conexão no WINDOWS. Este ip não funciona quando o prjeto está no docker
+	public $dsn_sqlserver = "sqlsrv:Server=192.168.254.231;Database=Implanta_OABRS"; // conexão no WINDOWS
+	// public $dsn_sqlserver = "dblib:host=192.168.254.231;dbname=Implanta_OABRS"; // LINUX
 	public $username_sqlserver	= "sa";
 	public $password_sqlserver	= 'sdja@esdFJ*!2';
 

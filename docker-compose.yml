@@ -4,4 +4,14 @@ php:
     - '8080:80'
     - '443:443'
   volumes:
-    - ./api:/var/www/html
+    - ./source:/var/www/html
+# db:
+#   image: mcr.microsoft.com/mssql/server:2019-latest
+#   container_name: Implanta_OABRS
+#   environment: 
+#     - SA_PASSWORD=sdja@esdFJ*!2
+#     - ACCEPT_EULA=Y
+#   ports: 
+#       - "1433:1433"
+#   volumes: 
+#     - ./source:/var/opt/mssql/source
