@@ -1,5 +1,6 @@
 <?php
 namespace API\Core\Configure;
+use OpenBoleto\Agente;
 
 GLOBAL $SISCONF;
 
@@ -63,5 +64,27 @@ class Config
 		}
 
 		return false;
+	}
+
+	/**********************************************************************************
+	DADOS PARA A GERAÇÃO DE BOLETOS
+	**********************************************************************************/
+	
+	
+	private $instituicao	= 'OAB/RS - Ordem dos Advogados do Brasil';
+	private $cnpj			= 'XX.XXX.XXX/XXXX-XX';
+	private $endereco		= 'Rua Washington Luiz, 1110 - Centro Histórico';
+	private $cep			= '90010-460';
+	private $cidade			= 'Porto Alegre';
+	private $uf				= 'RS';
+
+	public function retornarCedente(){
+		$objCedente	= new Agente($this->instituicao
+								,$this->cnpj
+								,$this->endereco
+								,$this->cep
+								,$this->cidade
+								,$this->uf);
+		return $objCedente;
 	}
 }

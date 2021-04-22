@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
- * OpenBoleto - Geração de boletos bancários em PHP
+ * OpenBoleto - Geraï¿½ï¿½o de boletos bancï¿½rios em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -34,17 +34,17 @@
 
     <div style="width: 666px">
         <div class="noprint info">
-            <h2>Instruções de Impressão</h2>
+            <h2>InstruÃ§Ãµes de ImpressÃ£o</h2>
             <ul>
-                <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).</li>
-                <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.</li>
-                <li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras.</li>
-                <li>Caso não apareça o código de barras no final, pressione F5 para atualizar esta tela.</li>
-                <li>Caso tenha problemas ao imprimir, copie a sequencia numérica abaixo e pague no caixa eletrônico ou no internet banking:</li>
+                <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (NÃ£o use modo econÃ´mico).</li>
+                <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mÃ­nimas Ã  esquerda e Ã  direita do formulÃ¡rio.</li>
+                <li>Corte na linha indicada. NÃ£o rasure, risque, fure ou dobre a regiÃ£o onde se encontra o cÃ³digo de barras.</li>
+                <li>Caso nÃ£o apareÃ§a o cÃ³digo de barras no final, pressione F5 para atualizar esta tela.</li>
+                <li>Caso tenha problemas ao imprimir, copie a sequencia numÃ©rica abaixo e pague no caixa eletrÃ´nico ou no internet banking:</li>
             </ul>
-            <span class="header">Linha Digitável: <?php echo $linha_digitavel; ?></span>
+            <span class="header">Linha DigitÃ¡vel: <?php echo $linha_digitavel; ?></span>
             <?php if ($valor_documento) : ?><span class="header">Valor: R$ <?php echo $valor_documento; ?></span><?php endif ?>
-            <?php if ($pagamento_minimo) : ?><span class="header">Pagamento mínimo: R$ <?php echo $pagamento_minimo; ?></span><?php endif ?>
+            <?php if ($pagamento_minimo) : ?><span class="header">Pagamento mÃ­nimo: R$ <?php echo $pagamento_minimo; ?></span><?php endif ?>
             <br>
             <div class="linha-pontilhada" style="margin-bottom: 20px;">Recibo do sacado</div>
         </div>
@@ -87,7 +87,7 @@
                     <div class="conteudo"><?php echo $cedente_cpf_cnpj ?></div>
                 </td>
                 <td width="120">
-                    <div class="titulo">Agência/Código do Cedente</div>
+                    <div class="titulo">AgÃªncia/CÃ³digo do Cedente</div>
                     <div class="conteudo rtl"><?php echo $agencia_codigo_cedente ?></div>
                 </td>
                 <td width="110">
@@ -101,17 +101,17 @@
                     <div class="conteudo"><?php echo $sacado ?></div>
                 </td>
                 <td>
-                    <div class="titulo">Nº documento</div>
+                    <div class="titulo">NÂ° documento</div>
                     <div class="conteudo rtl"><?php echo $numero_documento ?></div>
                 </td>
                 <td>
-                    <div class="titulo">Nosso número</div>
+                    <div class="titulo">Nosso nÃºmero</div>
                     <div class="conteudo rtl"><?php echo $nosso_numero ?></div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <div class="titulo">Espécie</div>
+                    <div class="titulo">EspÃ©cie</div>
                     <div class="conteudo"><?php echo $especie ?></div>
                 </td>
                 <td>
@@ -137,11 +137,11 @@
                     <div class="titulo">Demonstrativo</div>
                 </td>
                 <td>
-                    <div class="titulo">(-) Outras deduções</div>
+                    <div class="titulo">(-) Outras deduÃ§Ãµes</div>
                     <div class="conteudo"><?php echo $outras_deducoes ?></div>
                 </td>
                 <td>
-                    <div class="titulo">(+) Outros acréscimos</div>
+                    <div class="titulo">(+) Outros acrÃ©scimos</div>
                     <div class="conteudo rtl"><?php echo $outros_acrescimos ?></div>
                 </td>
                 <td>
@@ -151,7 +151,7 @@
             </tr>
             <tr>
                 <td colspan="4"><div style="margin-top: 10px" class="conteudo"><?php echo $demonstrativo[0] ?></div></td>
-                <td class="noleftborder"><div class="titulo">Autenticação mecânica</div></td>
+                <td class="noleftborder"><div class="titulo">AutenticaÃ§Ã£o mecÃ¢nica</div></td>
             </tr>
             <tr>
                 <td colspan="5" class="notopborder"><div class="conteudo"><?php echo $demonstrativo[1] ?></div></td>
@@ -177,7 +177,7 @@
         <div class="linha-pontilhada">Corte na linha pontilhada</div>
         <br>
 
-        <!-- Ficha de compensação -->
+        <!-- Ficha de compensaï¿½ï¿½o -->
         <?php include('partials/ficha-de-compensacao.phtml') ?>
     </div>
 </body>

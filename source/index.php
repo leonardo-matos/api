@@ -17,4 +17,6 @@
         $app->GET('deliver/listarClassificacaoGeral','API\deliver_teste\Controller\servicoTesteController::listarClassificacaoGeral');
         $app->GET('oab/teste','API\deliver_teste\Controller\servicoTesteController::teste');
 
+        $app->GET('oab/gerarBoleto/{idDebito}','API\Boleto\Controller\GerarBoletoController::gerarBoleto');
+
 $app->run();

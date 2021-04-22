@@ -1,7 +1,7 @@
 <?php
 
 /*
- * OpenBoleto - Geração de boletos bancários em PHP
+ * OpenBoleto - GeraÃ§Ã£o de boletos bancÃ¡rios em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -30,7 +30,7 @@ namespace OpenBoleto;
 use DateTime;
 
 /**
- * Classe base para geração de boletos bancários
+ * Classe base para geraÃ§Ã£o de boletos bancÃ¡rios
  *
  * @package    OpenBoleto
  * @author     Daniel Garajau <http://github.com/kriansa>
@@ -41,19 +41,19 @@ use DateTime;
 abstract class BoletoAbstract
 {
     /**
-     * Moedas disponíveis
+     * Moedas disponÃ­veis
      */
     const MOEDA_REAL = 9;
 
     /**
-     * @var array Nome espécie das moedas
+     * @var array Nome espÃ©cie das moedas
      */
     protected static $especie = array(
         self::MOEDA_REAL => 'REAL'
     );
 
     /**
-     * Código do banco
+     * CÃ³digo do banco
      * @var string
      */
     protected $codigoBanco;
@@ -71,7 +71,7 @@ abstract class BoletoAbstract
     protected $valor;
 
     /**
-     * Valor para pagamento mínimo em boletos de contra apresentação
+     * Valor para pagamento mÃ­nimo em boletos de contra apresentaÃ§Ã£o
      * @var float
      */
     protected $pagamentoMinimo;
@@ -83,7 +83,7 @@ abstract class BoletoAbstract
     protected $descontosAbatimentos;
 
     /**
-     * Valor para outras deduções
+     * Valor para outras deduÃ§Ãµes
      * @var float
      */
     protected $outrasDeducoes;
@@ -95,7 +95,7 @@ abstract class BoletoAbstract
     protected $moraMulta;
 
     /**
-     * Valor para outros acréscimos
+     * Valor para outros acrÃ©scimos
      * @var float
      */
     protected $outrosAcrescimos;
@@ -125,7 +125,7 @@ abstract class BoletoAbstract
     protected $dataDocumento;
 
     /**
-     * Data de emissão
+     * Data de emissÃ£o
      * @var \DateTime
      */
     protected $dataProcessamento;
@@ -137,7 +137,7 @@ abstract class BoletoAbstract
     protected $dataVencimento;
 
     /**
-     * Define se o boleto é para contra-apresentação
+     * Define se o boleto Ã© para contra-apresentaÃ§Ã£o
      * @var bool
      */
     protected $contraApresentacao = false;
@@ -149,19 +149,19 @@ abstract class BoletoAbstract
     protected $aceite = 'N';
 
     /**
-     * Espécie do documento, geralmente DM (Duplicata Mercantil)
+     * EspÃ©cie do documento, geralmente DM (Duplicata Mercantil)
      * @var string
      */
     protected $especieDoc;
 
     /**
-     * Número do documento
+     * NÃºmero do documento
      * @var int
      */
     protected $numeroDocumento;
 
     /**
-     * Define o número sequencial definido pelo cliente para compor o Nosso Número
+     * Define o nÃºmero sequencial definido pelo cliente para compor o Nosso NÃºmero
      *
      * @var int
      */
@@ -175,13 +175,13 @@ abstract class BoletoAbstract
     protected $usoBanco;
 
     /**
-     * Agência
+     * AgÃªncia
      * @var int
      */
     protected $agencia;
 
     /**
-     * Dígito da agência
+     * DÃ­gito da agÃªncia
      * @var string|int
      */
     protected $agenciaDv;
@@ -193,25 +193,25 @@ abstract class BoletoAbstract
     protected $conta;
 
     /**
-     * Dígito da conta
+     * DÃ­gito da conta
      * @var int
      */
     protected $contaDv;
 
     /**
-     * Modalidade de cobrança do cliente, geralmente Cobrança Simples ou Registrada
+     * Modalidade de cobranÃ§a do cliente, geralmente CobranÃ§a Simples ou Registrada
      * @var int
      */
     protected $carteira;
 
     /**
-     * Define as carteiras disponíveis para cada banco
+     * Define as carteiras disponÃ­veis para cada banco
      * @var array
      */
     protected $carteiras = array();
 
     /**
-     * Define as carteiras disponíveis para cada banco
+     * Define as carteiras disponÃ­veis para cada banco
      * @var array
      */
     protected $carteirasNomes = array();
@@ -235,7 +235,7 @@ abstract class BoletoAbstract
     protected $sacadorAvalista;
 
     /**
-     * Array com as linhas do demonstrativo (descrição do pagamento)
+     * Array com as linhas do demonstrativo (descriÃ§Ã£o do pagamento)
      * @var array
      */
     protected $descricaoDemonstrativo;
@@ -244,13 +244,13 @@ abstract class BoletoAbstract
      * Linha de local de pagamento
      * @var string
      */
-    protected $localPagamento = 'Pagável em qualquer agência bancária até o vencimento.';
+    protected $localPagamento = 'PagÃ¡vel em qualquer agÃªncia bancÃ¡ria atÃ© o vencimento.';
 
     /**
-     * Array com as linhas de instruções
+     * Array com as linhas de instruÃ§Ãµes
      * @var array
      */
-    protected $instrucoes = array('Em qualquer banco até o vencimento');
+    protected $instrucoes = array('Em qualquer banco atÃ© o vencimento');
 
     /**
      * Nome do arquivo de template a ser usado
@@ -259,19 +259,19 @@ abstract class BoletoAbstract
     protected $layout = 'default.phtml';
 
     /**
-     * Pasta de localização de resources (imagens, css e views)
+     * Pasta de localizaÃ§Ã£o de resources (imagens, css e views)
      * @var string
      */
     protected $resourcePath;
 
     /**
-     * Localização do logotipo da empresa
+     * LocalizaÃ§Ã£o do logotipo da empresa
      * @var string
      */
     protected $logoPath;
 
     /**
-     * Localização do logotipo do banco, referente ao diretório de imagens
+     * LocalizaÃ§Ã£o do logotipo do banco, referente ao diretÃ³rio de imagens
      * @var string
      */
     protected $logoBanco;
@@ -279,7 +279,7 @@ abstract class BoletoAbstract
     /**
      * Construtor
      *
-     * @param array $params Parâmetros iniciais para construção do objeto
+     * @param array $params ParÃ¢metros iniciais para construÃ§Ã£o do objeto
      */
     public function  __construct($params = array())
     {
@@ -290,29 +290,29 @@ abstract class BoletoAbstract
             }
         }
 
-        // Marca a data de emissão para hoje, caso não especificada
+        // Marca a data de emissÃ£o para hoje, caso nÃ£o especificada
         if (!$this->getDataDocumento()) {
             $this->setDataDocumento(new DateTime());
         }
 
-        // Marca a data de processamento para hoje, caso não especificada
+        // Marca a data de processamento para hoje, caso nÃ£o especificada
         if (!$this->getDataProcessamento()) {
             $this->setDataProcessamento(new DateTime());
         }
 
-        // Marca a data de vencimento para daqui a 5 dias, caso não especificada
+        // Marca a data de vencimento para daqui a 5 dias, caso nÃ£o especificada
         if (!$this->getDataVencimento()) {
             $this->setDataVencimento(new DateTime(date('Y-m-d', strtotime('+5 days'))));
         }
 
-        // Marca a pasta de resources padrão, caso não seja especificado
+        // Marca a pasta de resources padrÃ£o, caso nÃ£o seja especificado
         if (!$this->getResourcePath()) {
             $this->setResourcePath(__DIR__ . '/../../resources');
         }
     }
 
     /**
-     * Define a agência
+     * Define a agÃªncia
      *
      * @param int $agencia
      * @return BoletoAbstract
@@ -324,7 +324,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna a agência
+     * Retorna a agÃªncia
      *
      * @return int
      */
@@ -334,7 +334,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o dígito da agência
+     * Define o dÃ­gito da agÃªncia
      *
      * @param string|int $agenciaDv
      * @return BoletoAbstract
@@ -347,7 +347,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o dígito da agência
+     * Retorna o dÃ­gito da agÃªncia
      *
      * @return string|int
      */
@@ -357,7 +357,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o código da carteira (Com ou sem registro)
+     * Define o cÃ³digo da carteira (Com ou sem registro)
      *
      * @param string $carteira
      * @return BoletoAbstract
@@ -366,7 +366,7 @@ abstract class BoletoAbstract
     public function setCarteira($carteira)
     {
         if (!in_array($carteira, $this->getCarteiras())) {
-            throw new Exception("Carteira não disponível!");
+            throw new Exception("Carteira nÃ£o disponÃ­vel!");
         }
 
         $this->carteira = $carteira;
@@ -374,7 +374,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o código da carteira (Com ou sem registro)
+     * Retorna o cÃ³digo da carteira (Com ou sem registro)
      *
      * @return string
      */
@@ -385,7 +385,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna as carteiras disponíveis para este banco
+     * Retorna as carteiras disponÃ­veis para este banco
      *
      * @return array
      */
@@ -417,7 +417,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o código do banco
+     * Retorna o cÃ³digo do banco
      *
      * @return string
      */
@@ -427,7 +427,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o número da conta
+     * Define o nÃºmero da conta
      *
      * @param int $conta
      * @return BoletoAbstract
@@ -439,7 +439,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o número da conta
+     * Retorna o nÃºmero da conta
      *
      * @return int
      */
@@ -449,7 +449,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o dígito verificador da conta
+     * Define o dÃ­gito verificador da conta
      *
      * @param int $contaDv
      * @return BoletoAbstract
@@ -461,7 +461,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o dígito verificador da conta
+     * Retorna o dÃ­gito verificador da conta
      *
      * @return int
      */
@@ -493,8 +493,8 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define se o boleto é Contra-apresentação, ou seja, a data de vencimento e o valor são deixados em branco
-     * É sugerido que se use o campo pagamento mínimo ($this->setPagamentoMinimo())
+     * Define se o boleto Ã© Contra-apresentaÃ§Ã£o, ou seja, a data de vencimento e o valor sÃ£o deixados em branco
+     * Ã‰ sugerido que se use o campo pagamento mÃ­nimo ($this->setPagamentoMinimo())
      *
      * @param boolean $contraApresentacao
      * @return BoletoAbstract
@@ -506,7 +506,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna se o boleto é Contra-apresentação, ou seja, a data de vencimento é indefinida
+     * Retorna se o boleto Ã© Contra-apresentaÃ§Ã£o, ou seja, a data de vencimento Ã© indefinida
      *
      * @return boolean
      */
@@ -560,7 +560,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o campo Espécie Doc, geralmente DM (Duplicata Mercantil)
+     * Define o campo EspÃ©cie Doc, geralmente DM (Duplicata Mercantil)
      *
      * @param string $especieDoc
      * @return BoletoAbstract
@@ -572,7 +572,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o campo Espécie Doc, geralmente DM (Duplicata Mercantil)
+     * Retorna o campo EspÃ©cie Doc, geralmente DM (Duplicata Mercantil)
      *
      * @return string
      */
@@ -582,7 +582,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o campo Número do documento
+     * Define o campo NÃºmero do documento
      *
      * @param int $numeroDocumento
      * @return BoletoAbstract
@@ -594,7 +594,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o campo Número do documento
+     * Retorna o campo NÃºmero do documento
      *
      * @return int
      */
@@ -604,7 +604,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o número sequencial definido pelo cliente para compor o nosso número
+     * Define o nÃºmero sequencial definido pelo cliente para compor o nosso nÃºmero
      *
      * @param int $sequencial
      * @return BoletoAbstract
@@ -622,7 +622,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o número sequencial definido pelo cliente para compor o nosso número
+     * Retorna o nÃºmero sequencial definido pelo cliente para compor o nosso nÃºmero
      *
      * @return int
      */
@@ -659,7 +659,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define a data de geração do boleto
+     * Define a data de geraÃ§Ã£o do boleto
      *
      * @param \DateTime $dataProcessamento
      * @return BoletoAbstract
@@ -671,7 +671,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna a data de geração do boleto
+     * Retorna a data de geraÃ§Ã£o do boleto
      *
      * @return \DateTime
      */
@@ -681,7 +681,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define um array com instruções (máximo 8) para pagamento
+     * Define um array com instruÃ§Ãµes (mÃ¡ximo 8) para pagamento
      *
      * @param array $instrucoes
      * @return BoletoAbstract
@@ -693,7 +693,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna um array com instruções (máximo 8) para pagamento
+     * Retorna um array com instruÃ§Ãµes (mÃ¡ximo 8) para pagamento
      *
      * @return array
      */
@@ -703,7 +703,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define um array com a descrição do demonstrativo (máximo 5)
+     * Define um array com a descriÃ§Ã£o do demonstrativo (mÃ¡ximo 5)
      *
      * @param array $descricaoDemonstrativo
      * @return BoletoAbstract
@@ -715,7 +715,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna um array com a descrição do demonstrativo (máximo 5)
+     * Retorna um array com a descriÃ§Ã£o do demonstrativo (mÃ¡ximo 5)
      *
      * @return array
      */
@@ -879,7 +879,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o campo outras deduções do boleto
+     * Define o campo outras deduÃ§Ãµes do boleto
      *
      * @param float $outrasDeducoes
      * @return BoletoAbstract
@@ -891,7 +891,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o campo outras deduções do boleto
+     * Retorna o campo outras deduÃ§Ãµes do boleto
      *
      * @return float
      */
@@ -901,7 +901,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define o campo outros acréscimos do boleto
+     * Define o campo outros acrÃ©scimos do boleto
      *
      * @param float $outrosAcrescimos
      * @return BoletoAbstract
@@ -913,7 +913,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o campo outros acréscimos do boleto
+     * Retorna o campo outros acrÃ©scimos do boleto
      *
      * @return float
      */
@@ -989,7 +989,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define valor para pagamento mínimo em boletos de contra apresentação.
+     * Define valor para pagamento mÃ­nimo em boletos de contra apresentaÃ§Ã£o.
      * Quando definido, remove o valor normal do boleto.
      *
      * @param float $pagamentoMinimo
@@ -1003,7 +1003,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o valor para pagamento mínimo em boletos de contra apresentação.
+     * Retorna o valor para pagamento mÃ­nimo em boletos de contra apresentaÃ§Ã£o.
      *
      * @return float
      */
@@ -1035,7 +1035,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna a localização da pasta de resources
+     * Retorna a localizaÃ§Ã£o da pasta de resources
      *
      * @param string $resourcePath
      * @return BoletoAbstract
@@ -1047,7 +1047,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define a localização da pasta de resources
+     * Define a localizaÃ§Ã£o da pasta de resources
      *
      * @return string
      */
@@ -1057,7 +1057,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define a localização do logotipo do banco relativo à pasta de imagens
+     * Define a localizaÃ§Ã£o do logotipo do banco relativo Ã  pasta de imagens
      *
      * @param string $logoBanco
      * @return BoletoAbstract
@@ -1069,7 +1069,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna a localização do logotipo do banco relativo à pasta de imagens
+     * Retorna a localizaÃ§Ã£o do logotipo do banco relativo Ã  pasta de imagens
      *
      * @return string
      */
@@ -1079,7 +1079,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o logotipo do banco em Base64, pronto para ser inserido na página
+     * Retorna o logotipo do banco em Base64, pronto para ser inserido na pÃ¡gina
      *
      * @return string
      */
@@ -1095,8 +1095,8 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Define a localização exata do logotipo da empresa.
-     * Note que este não é relativo à pasta de imagens
+     * Define a localizaÃ§Ã£o exata do logotipo da empresa.
+     * Note que este nÃ£o Ã© relativo Ã  pasta de imagens
      *
      * @param string $logoPath
      * @return BoletoAbstract
@@ -1108,8 +1108,8 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna a localização completa do logotipo da empresa
-     * Note que este não é relativo à pasta de imagens
+     * Retorna a localizaÃ§Ã£o completa do logotipo da empresa
+     * Note que este nÃ£o Ã© relativo Ã  pasta de imagens
      *
      * @return string
      */
@@ -1119,28 +1119,28 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Mostra exception ao erroneamente tentar setar o nosso número
+     * Mostra exception ao erroneamente tentar setar o nosso nÃºmero
      *
      * @throws Exception
      */
     public final function setNossoNumero()
     {
-        throw new Exception('Não é possível definir o nosso número diretamente. Utilize o método setSequencial.');
+        throw new Exception('NÃ£o Ã© possÃ­vel definir o nosso nÃºmero diretamente. Utilize o mÃ©todo setSequencial.');
     }
 
     /**
-     * Retorna o Nosso Número calculado.
+     * Retorna o Nosso NÃºmero calculado.
      *
-     * @param bool $incluirFormatacao Incluir formatação ou não (pontuação, espaços e barras)
+     * @param bool $incluirFormatacao Incluir formataÃ§Ã£o ou nÃ£o (pontuaÃ§Ã£o, espaÃ§os e barras)
      * @return string
      */
     public function getNossoNumero($incluirFormatacao = true)
     {
         $numero = $this->gerarNossoNumero();
 
-        // TODO: Fazer cache do nosso número para evitar múltiplas chamadas
+        // TODO: Fazer cache do nosso nÃºmero para evitar mÃºltiplas chamadas
 
-        // Remove a formatação, caso especificado
+        // Remove a formataÃ§Ã£o, caso especificado
         if (!$incluirFormatacao) {
             return str_replace(array('.', '/', ' ', '-'), '', $numero);
         }
@@ -1149,22 +1149,22 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Método onde o Boleto deverá gerar o Nosso Número.
+     * MÃ©todo onde o Boleto deverÃ¡ gerar o Nosso NÃºmero.
      *
      * @return string
      */
     protected abstract function gerarNossoNumero();
 
     /**
-     * Método onde qualquer boleto deve extender para gerar o código da posição de 20 a 44
+     * MÃ©todo onde qualquer boleto deve extender para gerar o cÃ³digo da posiÃ§Ã£o de 20 a 44
      *
      * @return string
      */
     public abstract function getCampoLivre();
 
     /**
-     * Em alguns bancos, a visualização de alguns campos do boleto são diferentes.
-     * Nestes casos, sobrescreva este método na classe do banco e retorne um array
+     * Em alguns bancos, a visualizaÃ§Ã£o de alguns campos do boleto sÃ£o diferentes.
+     * Nestes casos, sobrescreva este mÃ©todo na classe do banco e retorne um array
      * contendo estes campos alterados
      *
      *
@@ -1174,11 +1174,11 @@ abstract class BoletoAbstract
      *      'carteira' => 'SR'
      * )
      * </code>
-     * Mostrará SR no campo "Carteira" do boleto.
+     * MostrarÃ¡ SR no campo "Carteira" do boleto.
      *
-     * Mas também permite utilizar campos personalizados, por exemplo, caso exista
-     * o campo ABC no boleto, você pode definí-lo na classe do banco, retornar o
-     * valor dele através deste método e mostrá-lo na view correspondente.
+     * Mas tambÃ©m permite utilizar campos personalizados, por exemplo, caso exista
+     * o campo ABC no boleto, vocÃª pode definÃ­-lo na classe do banco, retornar o
+     * valor dele atravÃ©s deste mÃ©todo e mostrÃ¡-lo na view correspondente.
      *
      *
      * @return array
@@ -1249,7 +1249,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o campo Agência/Cedente do boleto
+     * Retorna o campo AgÃªncia/Cedente do boleto
      *
      * @return string
      */
@@ -1261,11 +1261,11 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o nome da carteira para impressão no boleto
+     * Retorna o nome da carteira para impressÃ£o no boleto
      *
-     * Caso o nome da carteira a ser impresso no boleto seja diferente do número
-     * Então crie uma variável na classe do banco correspondente $carteirasNomes
-     * sendo uma array cujos índices sejam os números das carteiras e os valores
+     * Caso o nome da carteira a ser impresso no boleto seja diferente do nÃºmero
+     * EntÃ£o crie uma variÃ¡vel na classe do banco correspondente $carteirasNomes
+     * sendo uma array cujos Ã­ndices sejam os nÃºmeros das carteiras e os valores
      * seus respectivos nomes
      *
      * @return string
@@ -1276,7 +1276,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o número Febraban
+     * Retorna o nÃºmero Febraban
      *
      * @return string
      */
@@ -1286,7 +1286,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o código do banco com o dígito verificador
+     * Retorna o cÃ³digo do banco com o dÃ­gito verificador
      *
      * @return string
      */
@@ -1299,7 +1299,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna a linha digitável do boleto
+     * Retorna a linha digitÃ¡vel do boleto
      *
      * @return string
      */
@@ -1351,7 +1351,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna a string contendo as imagens do código de barras, segundo o padrão Febraban
+     * Retorna a string contendo as imagens do cÃ³digo de barras, segundo o padrÃ£o Febraban
      *
      * @return string
      */
@@ -1421,7 +1421,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o valor do boleto com 10 dígitos e remoção dos pontos/vírgulas
+     * Retorna o valor do boleto com 10 dÃ­gitos e remoÃ§Ã£o dos pontos/vÃ­rgulas
      *
      * @return string
      */
@@ -1431,8 +1431,8 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o número de dias de 07/10/1997 até a data de vencimento do boleto
-     * Ou 0000 caso não tenha data de vencimento (contra-apresentação)
+     * Retorna o nÃºmero de dias de 07/10/1997 atÃ© a data de vencimento do boleto
+     * Ou 0000 caso nÃ£o tenha data de vencimento (contra-apresentaÃ§Ã£o)
      *
      * @return string
      */
@@ -1447,7 +1447,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Retorna o dígito verificador do código Febraban
+     * Retorna o dÃ­gito verificador do cÃ³digo Febraban
      *
      * @return int
      */
@@ -1466,8 +1466,8 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Helper para Zerofill (0 à esqueda).
-     * O valor não deve ter mais caracteres do que o número de dígitos especificados
+     * Helper para Zerofill (0 Ã  esqueda).
+     * O valor nÃ£o deve ter mais caracteres do que o nÃºmero de dÃ­gitos especificados
      *
      * @param int $valor
      * @param int $digitos
@@ -1476,16 +1476,16 @@ abstract class BoletoAbstract
      */
     protected static function zeroFill($valor, $digitos)
     {
-        // TODO: Retirar isso daqui, e criar um método para validar os dados
+        // TODO: Retirar isso daqui, e criar um mÃ©todo para validar os dados
         if (strlen($valor) > $digitos) {
-            throw new Exception("O valor {$valor} possui mais de {$digitos} dígitos!");
+            throw new Exception("O valor {$valor} possui mais de {$digitos} dÃ­gitos!");
         }
 
         return str_pad($valor, $digitos, '0', STR_PAD_LEFT);
     }
 
     /**
-     * Formata o valor para apresentação em Real (1.000,00)
+     * Formata o valor para apresentaÃ§Ã£o em Real (1.000,00)
      *
      * @param int|float $valor
      * @param bool $mostrar_zero Se true, retorna 0,00 caso o valor seja 0, se false, retorna vazio
@@ -1497,7 +1497,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Helper para obter os caracteres à esquerda
+     * Helper para obter os caracteres Ã  esquerda
      *
      * @param string $string
      * @param int $num Quantidade de caracteres para se obter
@@ -1509,7 +1509,7 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Helper para se obter os caracteres à direita
+     * Helper para se obter os caracteres Ã  direita
      *
      * @param string $string
      * @param int $num Quantidade de caracteres para se obter
@@ -1521,10 +1521,10 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Calcula e retorna o dígito verificador usando o algoritmo Modulo 10
+     * Calcula e retorna o dÃ­gito verificador usando o algoritmo Modulo 10
      *
      * @param string $num
-     * @see Documentação em http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+     * @see DocumentaÃ§Ã£o em http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
      * @return int
      */
     protected static function modulo10($num)
@@ -1562,11 +1562,11 @@ abstract class BoletoAbstract
     }
 
     /**
-     * Calcula e retorna o dígito verificador usando o algoritmo Modulo 11
+     * Calcula e retorna o dÃ­gito verificador usando o algoritmo Modulo 11
      *
      * @param string $num
      * @param int $base
-     * @see Documentação em http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
+     * @see DocumentaÃ§Ã£o em http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
      * @return array Retorna um array com as chaves 'digito' e 'resto'
      */
     protected static function modulo11($num, $base=9)
