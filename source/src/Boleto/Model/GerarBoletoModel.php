@@ -59,7 +59,7 @@ class GerarBoletoModel extends BoletoModel
 										cc.CodigoCedente AS cedente,
 										cc.IdConvenioPadrao AS convenio,
 										d.NumeroDocumento AS numeroDocumento,
-										cc.SequencialNossoNumero as sequencial, AS sequencial,
+										cc.SequencialNossoNumero as sequencial,
 										'sera gerado separado a partir da dbo.ufn_CalcularModulo11' AS sequencial_dv,-- dbo.ufn_CalcularModulo11 @codigo = 
 										CONVERT(CHAR(10), d.DataVencimento, 103) AS data_vencimento,
 										CONVERT(CHAR(10), d.DataVencimento, 103) AS vencimento_parcela,
