@@ -119,19 +119,25 @@ class GerarBoletoController extends BoletoController
 		$financeiro = new Boleto();
 		$converter = new PhantomJS();
 		$arrLancamentos = array();
-
-		// var_dump($idDebito);exit;
 		
 		//Dados do Boleto
-		$gerarBoletoModelodel->buscarDadosDoBoleto($idDebito);
-		// var_dump($gerarBoletoModelodel->getResultSet()[0]);exit;
-		$arrDadosBoleto = $gerarBoletoModelodel->getResultSet()[0];
+		$dadosProximoNumero = $gerarBoletoModelodel->buscarDadosParaProximoNumero($idDebito);
+		// $gerarBoletoModelodel->gerarProximoNossoNumero($dadosProximoNumero[0]['IdBancoSiscafw'],
+		// 												$dadosProximoNumero[0]['IdContaCorrente'],
+		// 												$dadosProximoNumero[0]['convenio'],
+		// 												$dadosProximoNumero[0]['debitoEmConta'],
+		// 												$dadosProximoNumero[0]['emissaoWeb'],
+		// 												$dadosProximoNumero[0]['nossoNumero']
+		// 											);
+		// $gerarBoletoModelodel->gerarProximoNossoNumeroDV($dadosProximoNumeroDV[0]['codigo']);
+		// echo '<pre>';
+		// var_dump($dadosProximoNumero);exit;
+		$arrDadosBoleto = $gerarBoletoModelodel->buscarDadosDoBoleto($idDebito)[0];
 
-		// if(strtotime('VENCIMENTO_PARCELA') > strtotime(date("d/m/Y"))){
+		if(strtotime($arrDadosBoleto['vencimento_parcela']) > date("d/m/Y")){
 
-		// 	return $app->json(array('codigo'=>400,'mensagem'=>'Acesse o portal do aluno para instruções de como gerar boleto vencido'),400);
-		// }		
-
+			return $app->json(array('codigo'=>400,'mensagem'=>'Atenção o Boleto está vencido.'),400);
+		}
 
 		// if($arrDadosBoleto['BOLETO_STATUS'] == 'Liquidado'){
 		// 	return $app->json(array('codigo'=>400,'mensagem'=>'Este boleto já foi pago!'),400);
@@ -147,16 +153,14 @@ class GerarBoletoController extends BoletoController
 
 		// $arrDadosBoleto['DESCONTO'] = trim($desconto[0]['DESCONTO']);
 
-		
 		$financeiro->setDadosObrigatorioBoleto($arrDadosBoleto);
 		// $financeiro->adicionarLancamentos($lancamentos,$arrDadosBoleto['MODALIDADE']);
 		// $financeiro->buscarInstrucoesDoBoleto($arrDadosBoleto);
 
 		$boleto = $financeiro->gerarBoleto();
-        // var_dump(sys_get_temp_dir());exit;
 		$html = $boleto->getOutput();
-		return $html; exit; //para testes, visualiza o boleto no postman
+		return $html;
 
-		return $app->json(array('codigo'=>200,'mensagem'=>utf8_encode('Boleto gerado com sucesso!')),200);
+		// return $app->json(array('codigo'=>200,'mensagem'=>utf8_encode('Boleto gerado com sucesso!')),200);
 	}
 }

@@ -203,11 +203,13 @@ class Boleto{
 		$dados = array_change_key_case($arrDados);
 
 		// A função extract  transforma em variavel tudo que está dentro do array
- 		extract($dados);
+		extract($dados);
+		// var_dump($banco);exit;
+
 		
 		$config = new Config();
 		//($nome, $documento, $endereco = null, $cep = null, $cidade = null, $uf = null)
-		$sacado = new Agente(utf8_decode($nome),$cpf,$endereco,$cep,utf8_decode($cidade),$uf);
+		$sacado = new Agente(utf8_decode($nome),$cpfcnpj,$endereco,$cep,utf8_decode($cidade),$uf);
 		
 		// var_dump('datavencimento: ',$data_vencimento);
 		// var_dump('vencimentoParcela: ',\DateTime::createFromFormat('d/m/Y',$data_vencimento));exit;
@@ -283,7 +285,7 @@ class Boleto{
     {
         // var_dump('aqui no boleto: ',$this->banco);exit;
 
-        $this->banco = '748';
+        // $this->banco = '748';
 
 		switch($this->banco){
 			// Itau

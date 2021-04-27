@@ -71,10 +71,10 @@ class Config
 	**********************************************************************************/
 	
 	
-	private $instituicao	= 'OAB/RS - Ordem dos Advogados do Brasil';
-	private $cnpj			= 'XX.XXX.XXX/XXXX-XX';
+	private $instituicao	= 'Ordem Dos Advogados do Brasil Seccao do Rio g do Sul';
+	private $cnpj			= '87.019.584/0001-25';
 	private $endereco		= 'Rua Washington Luiz, 1110 - Centro Histórico';
-	private $cep			= '90010-460';
+	private $cep			= '90.010-460';
 	private $cidade			= 'Porto Alegre';
 	private $uf				= 'RS';
 
