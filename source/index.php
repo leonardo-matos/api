@@ -6,17 +6,12 @@
 
     $app['debug'] = true;
 
-        //Cria e renova o token
+        //Cria o token
         $app->match('/oauth2/token','API\Core\Auth\AuthServerController::generateAccessToken');
-
-        $app->POST('deliver/incluirCorredor','API\deliver_teste\Controller\servicoTesteController::incluirCorredor');
-        $app->POST('deliver/incluirProva','API\deliver_teste\Controller\servicoTesteController::incluirProva');
-        $app->POST('deliver/incluirProvaCorredor','API\deliver_teste\Controller\servicoTesteController::incluirProvaCorredor');
-        $app->POST('deliver/incluirResultados','API\deliver_teste\Controller\servicoTesteController::incluirResultados');
-        $app->GET('deliver/listarClassificacaoPorIdade','API\deliver_teste\Controller\servicoTesteController::listarClassificacaoPorIdade');
-        $app->GET('deliver/listarClassificacaoGeral','API\deliver_teste\Controller\servicoTesteController::listarClassificacaoGeral');
-        $app->GET('oab/teste','API\deliver_teste\Controller\servicoTesteController::teste');
-
+        
+        /************************************************************************************************************
+	    * 							        Serviços relacionados a geração do boleto         		       		    *
+	    ************************************************************************************************************/
         $app->GET('oab/gerarBoleto/{idDebito}','API\Boleto\Controller\GerarBoletoController::gerarBoleto');
 
 $app->run();
