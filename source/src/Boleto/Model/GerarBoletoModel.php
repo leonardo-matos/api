@@ -66,7 +66,7 @@ class GerarBoletoModel extends BoletoModel
 										d.ValorDevido AS valor,
 										d.IdSituacaoAtual AS status,-- select * from SituacoesDebito
 										cc.ValorMulta AS multa,
-										'linha_digitavel' AS linha_digitavel,-- verificar com anna
+										'74898888888888888888888888888888888888888888888' AS linha_digitavel,-- verificar com anna
 										'codigo_barras' AS codigo_barras,-- verificar com anna
 										d.Desconto AS Desconto
 

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * OpenBoleto - Geração de boletos bancários em PHP
+ * OpenBoleto - GeraÃ§Ã£o de boletos bancÃ¡rios em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -42,13 +42,13 @@ use OpenBoleto\Exception;
 class Santander extends BoletoAbstract
 {
     /**
-     * Código do banco
+     * CÃ³digo do banco
      * @var string
      */
     protected $codigoBanco = '033';
 
     /**
-     * Localização do logotipo do banco, referente ao diretório de imagens
+     * LocalizaÃ§Ã£o do logotipo do banco, referente ao diretÃ³rio de imagens
      * @var string
      */
     protected $logoBanco = 'santander.jpg';
@@ -57,19 +57,19 @@ class Santander extends BoletoAbstract
      * Linha de local de pagamento
      * @var string
      */
-    protected $localPagamento = 'Pag�vel em qualquer banco at� o vencimento. Ap�s o vencimento o boleto deve ser atualizado no site do banco.';
+    protected $localPagamento = 'Pagável em qualquer banco até o vencimento. Após o vencimento o boleto deve ser atualizado no site do banco.';
 
     /**
-     * Define as carteiras disponíveis para este banco
+     * Define as carteiras disponÃ­veis para este banco
      * @var array
      */
     protected $carteiras = array('101', '102', '201');
 
     /**
-     * Define os nomes das carteiras para exibição no boleto
+     * Define os nomes das carteiras para exibiÃ§Ã£o no boleto
      * @var array
      */
-    protected $carteirasNomes = array('101' => 'Cobrança Simples ECR', '102' => 'Cobrança Simples CSR');
+    protected $carteirasNomes = array('101' => 'CobranÃ§a Simples ECR', '102' => 'CobranÃ§a Simples CSR');
 
     /**
      * Define o valor do IOS - Seguradoras (Se 7% informar 7. Limitado a 9%) - Demais clientes usar 0 (zero)
@@ -103,7 +103,7 @@ class Santander extends BoletoAbstract
     }
 
     /**
-     * Gera o Nosso Número.
+     * Gera o Nosso NÃºmero.
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class Santander extends BoletoAbstract
     }
     
     /**
-     * Método para gerar o código da posição de 20 a 44
+     * MÃ©todo para gerar o cÃ³digo da posiÃ§Ã£o de 20 a 44
      *
      * @return string
      * @throws \OpenBoleto\Exception
@@ -132,7 +132,7 @@ class Santander extends BoletoAbstract
     }
 
     /**
-     * Define variáveis da view específicas do boleto do Santander
+     * Define variÃ¡veis da view especÃ­ficas do boleto do Santander
      *
      * @return array
      */

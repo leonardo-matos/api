@@ -212,7 +212,7 @@ class Boleto{
 		$sacado = new Agente(utf8_decode($nome),$cpfcnpj,$endereco,$cep,utf8_decode($cidade),$uf);
 		
 		// var_dump('datavencimento: ',$data_vencimento);
-		// var_dump('vencimentoParcela: ',\DateTime::createFromFormat('d/m/Y',$data_vencimento));exit;
+		// var_dump('$linhadigitavel: ',$linha_digitavel);exit;
         
 		//Dados da conta
 		$this->banco = $banco;
@@ -235,7 +235,7 @@ class Boleto{
 		$this->valor = str_replace(',','.',$valor);
 		$this->status = $boleto_status;
 		$this->multa =  str_replace(',','.',$multa);
-		$this->linha_digitavel = $linhadigitavel;
+		$this->linha_digitavel = $linha_digitavel;
 		$this->codigo_barras = $codigobarras;
 		
 		if(isset($desconto)){

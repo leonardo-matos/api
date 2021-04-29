@@ -158,7 +158,36 @@ class GerarBoletoController extends BoletoController
 		// $financeiro->buscarInstrucoesDoBoleto($arrDadosBoleto);
 
 		$boleto = $financeiro->gerarBoleto();
-		$html = $boleto->getOutput();
+		// $html = $boleto->getOutput();
+		$html = '<style>
+					@media print{ 
+						#imprimir{
+							display:none;
+						} 
+						body{
+							background: #fff;
+						}
+					}
+					#botaoImprimir{
+						background-color: #008CBA;
+						border: none;
+						color: white;
+						padding: 11px 29px;
+						text-align: center;
+						text-decoration: none;
+						display: inline-block;
+						font-size: 16px;
+						margin: 4px 2px 0px 550px;
+						cursor: pointer;
+						border-radius: 13px;
+					}
+				</style>
+				<div id="imprimir">
+					<a href="javascript:;" onclick="window.print();return false">
+						<button type="button" id="botaoImprimir" title="Imprimir">Imprimir</button>
+					</a>
+				</div>';
+		$html .= $boleto->getOutput();
 		return $html;
 
 		// return $app->json(array('codigo'=>200,'mensagem'=>utf8_encode('Boleto gerado com sucesso!')),200);
